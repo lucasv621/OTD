@@ -121,7 +121,7 @@ def agregar_variables(prob, instancia):
         instancia.nombres.append(f'u_{i}')
         coeficientes_funcion_objetivo.append(0)
         tipos.append(prob.variables.type.integer)
-        lb.append(1 if i != 1 else 0)
+        lb.append(2 if i != 1 else 1)
         ub.append(n)
 
     print(f'Variables u_i {c}')

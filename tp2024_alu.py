@@ -299,6 +299,20 @@ def activacion_z_x(prob, instancia, n):
         names=[f'activacion_z_x_{i}']
         )
 
+def minimo_bicicletas(prob, instancia, n, minimo):
+    '''
+    Para todas las combinaciones de i j al menos tiene que haber minimo bicicletas
+    '''
+    prob.linear_constraints.add(
+        lin_expr=[cplex.SparsePair(
+            ind=[f'y_{i}_{j}' for i in range(n) for j in range(n) if i != j],
+            val=[1] * (n * (n - 1))
+        )],
+        senses=['G'],
+        rhs=[minimo],
+        names=[f'minimo_bicicletas']
+    )
+
 def agregar_restricciones(prob, instancia):
     # Agregar las restricciones ax <= (>= ==) b:
 	# funcion 'add' de 'linear_constraints' con parametros:

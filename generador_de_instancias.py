@@ -5,11 +5,11 @@ def generar_archivo_datos(filename):
     random.seed(1234)
 
     # Cantidad de clientes
-    cantidad_clientes = 50
+    cantidad_clientes = 10
     costo_repartidor = 3
-    d_max = 5
-    cantidad_refrigerados = 3
-    cantidad_exclusivos = 3
+    d_max = 7
+    cantidad_refrigerados = 1
+    cantidad_exclusivos = 1
 
     # Generamos los clientes refrigerados con reemplazo
     refrigerados = random.choices(range(1, cantidad_clientes + 1), k=cantidad_refrigerados)

@@ -154,7 +154,7 @@ def agregar_variables(prob, instancia):
 def evitar_subtours(prob, instancia, n):
 
     for i in range(1, n + 1): 
-        for j in range(1, n + 1):  
+        for j in range(1, n+1):  
             if i != j:
                 prob.linear_constraints.add(
                     lin_expr=[cplex.SparsePair(
@@ -169,7 +169,7 @@ def evitar_subtours(prob, instancia, n):
     prob.linear_constraints.add(
     lin_expr=[cplex.SparsePair(ind=[f'u_1'], val=[1])],
     senses=['E'],
-    rhs=[0],
+    rhs=[1],
     names=['fix_u1']
     )
 
@@ -255,7 +255,7 @@ def activacion_z(prob, instancia, n):
                         val=[1] + [-1]
                     )],
                     senses=['L'],  # y_i_j - z_i <= 0
-                    rhs=[0],
+                    rhs=[1],
                     names=[f'activacion_z_{i}_{j}']  
                 )
 
@@ -397,6 +397,10 @@ def mostrar_solucion(prob,instancia, nombres):
     status = prob.solution.get_status_string(status_code = prob.solution.get_status())
     
     # Tomar el valor del funcional
+    try:
+        valor_obj = prob.solution.get_objective_value()
+    except:
+        print(cplex.FeasoptInterface.get_feasibilities(prob.solution))
     valor_obj = prob.solution.get_objective_value()
     
     print('Funcion objetivo: ',valor_obj,'(' + str(status) + ')')

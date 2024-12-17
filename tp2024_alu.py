@@ -153,16 +153,16 @@ def agregar_variables(prob, instancia):
     
 def evitar_subtours(prob, instancia, n):
 
-    for i in range(1, n + 1): 
-        for j in range(1, n+1):  
+    for i in range(2, n + 1): 
+        for j in range(2, n + 1):  
             if i != j:
                 prob.linear_constraints.add(
                     lin_expr=[cplex.SparsePair(
                         ind=[f'u_{i}', f'u_{j}', f'x_{i}_{j}'],
-                        val=[1, -1, n-1]
+                        val=[1, -1, n]
                     )],
                     senses=['L'],
-                    rhs=[n-2],
+                    rhs=[n-1],
                     names=[f'MTZ_{i}_{j}']
                 )
 
@@ -397,10 +397,6 @@ def mostrar_solucion(prob,instancia, nombres):
     status = prob.solution.get_status_string(status_code = prob.solution.get_status())
     
     # Tomar el valor del funcional
-    try:
-        valor_obj = prob.solution.get_objective_value()
-    except:
-        print(cplex.FeasoptInterface.get_feasibilities(prob.solution))
     valor_obj = prob.solution.get_objective_value()
     
     print('Funcion objetivo: ',valor_obj,'(' + str(status) + ')')
@@ -416,25 +412,25 @@ def mostrar_solucion(prob,instancia, nombres):
         for j in range(1, n + 1):
             if i != j:
                 var_name = f'x_{i}_{j}'
-                x_values[(i, j)] = solution_values[nombres.index(var_name)]
+                x_values[(i, j)] = solution_values[instancia.nombres.index(var_name)]
 
     # Extracción y
     for i in range(1, n + 1):
         for j in range(1, n + 1):
             if i != j:
                 var_name = f'y_{i}_{j}'
-                y_values[(i, j)] = solution_values[nombres.index(var_name)]
+                y_values[(i, j)] = solution_values[instancia.nombres.index(var_name)]
 
     # Extracción u
     for i in range(1, n + 1):
         var_name = f'u_{i}'
-        u_values[i] = solution_values[nombres.index(var_name)]
+        u_values[i] = solution_values[instancia.nombres.index(var_name)]
     
     # Extracción z
     z_values = {}
     for i in range(1, n + 1):
         var_name = f'z_{i}'
-        z_values[i] = solution_values[nombres.index(var_name)]
+        z_values[i] = solution_values[instancia.nombres.index(var_name)]
 
     # Mostrar las variables con valor positivo (mayor que una tolerancia)
     print('Variables con valor positivo:')
@@ -456,7 +452,7 @@ def mostrar_solucion(prob,instancia, nombres):
 
     # Ordenar las variables de x
     ruta_ordenada = []
-    nodo_inicial = 0
+    nodo_inicial = 1
 
     while len(ruta_ordenada) < len(vars_x_con_valor_positivo):
         for (i,j), value in vars_x_con_valor_positivo.items():

@@ -245,7 +245,7 @@ def activacion_z(prob, instancia, n):
             names=[f'anti_activacion_z_{i}']
         )
     
-    # Segundo constraint:  y_i_j <= z_i para todos los 
+    # Segundo constraint:  y_i_j <= z_i para todos los i,j
     for i in range(1, n + 1):
         for j in range(1, n + 1):
             if i != j:
@@ -255,7 +255,7 @@ def activacion_z(prob, instancia, n):
                         val=[1] + [-1]
                     )],
                     senses=['L'],  # y_i_j - z_i <= 0
-                    rhs=[1],
+                    rhs=[0],
                     names=[f'activacion_z_{i}_{j}']  
                 )
 
@@ -305,13 +305,50 @@ def minimo_bicicletas(prob, instancia, n, minimo):
     '''
     prob.linear_constraints.add(
         lin_expr=[cplex.SparsePair(
-            ind=[f'y_{i}_{j}' for i in range(n) for j in range(n) if i != j],
+            ind=[f'y_{i}_{j}' for i in range(1,n+1) for j in range(1,n+1) if i != j],
             val=[1] * (n * (n - 1))
         )],
         senses=['G'],
         rhs=[minimo],
         names=[f'minimo_bicicletas']
     )
+
+def minimo_viajes_repartidor(prob, instancia, n, minimo):
+    '''
+    Pedir que el repartidor haga al menos minimo viajes
+
+    Esto se modelaria como que:
+    La suma de los yij tiene que ser mayor o igual a 4*zi para cada i
+    '''
+    for i in range(1, n+1):
+        prob.linear_constraints.add(
+            lin_expr=[cplex.SparsePair(
+                ind=[f'y_{i}_{j}' for j in range(1, n + 1) if i != j] + [f'z_{i}'],
+                val=[1] * (n - 1) + [-minimo]
+            )],
+            senses=['G'],
+            rhs=[0],
+            names=[f'minimo_viajes_repartidor_{i}']
+        )
+        
+def clientes_exclusivos(prob, instancia, n):
+    '''
+    Los clientes exclusivos tienen que ser visitados si o si por un camión
+
+    Esto se modela como que:
+
+    La sumatoria de todos los xji tiene que ser mayor o igual a 1 para cada cliente exclusivo
+    '''
+    for i in instancia.exclusivos:
+        prob.linear_constraints.add(
+            lin_expr=[cplex.SparsePair(
+                ind=[f'x_{j}_{i}' for j in range(1, n + 1) if i != j],
+                val=[1] * (n - 1)
+            )],
+            senses=['G'],
+            rhs=[1],
+            names=[f'clientes_exclusivos_{i}']
+        )
 
 def agregar_restricciones(prob, instancia):
     # Agregar las restricciones ax <= (>= ==) b:
@@ -352,6 +389,16 @@ def agregar_restricciones(prob, instancia):
 
     # 8. Activación de Zi con Xij
     activacion_z_x(prob, instancia, n)
+
+    # --- Restricciones deseables ---
+    # 9. Minimo de viajes por repartidor
+    minimo_viajes_repartidor(prob, instancia, n, 4)
+
+    # 10. Clientes exclusivos
+    clientes_exclusivos(prob, instancia, n)
+
+    # Restriccion de testeo minimo de bicicletas
+    #minimo_bicicletas(prob, instancia, n, 10)
 
 
 

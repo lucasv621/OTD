@@ -54,12 +54,10 @@ class InstanciaRecorridoMixto:
         # cerramos el archivo
         f.close()
 
-def cargar_instancia():
+def cargar_instancia(nombre_archivo):
     # El 1er parametro es el nombre del archivo de entrada
-    # nombre_archivo = sys.argv[1].strip()
-    nombre_archivo = 'instancias/instancia_50_clientes.txt'
-    #nombre_archivo = 'instancias/instancia_custom_clientes.txt'
-    #nombre_archivo = 'instancias/instancia_def.txt'
+    #nombre_archivo = sys.argv[1].strip()
+
     # Crea la instancia vacia
     instancia = InstanciaRecorridoMixto()
     # Llena la instancia con los datos del archivo de entrada 
@@ -392,10 +390,10 @@ def agregar_restricciones(prob, instancia):
 
     # --- Restricciones deseables ---
     # 9. Minimo de viajes por repartidor
-    minimo_viajes_repartidor(prob, instancia, n, 4)
+    #minimo_viajes_repartidor(prob, instancia, n, 4)
 
     # 10. Clientes exclusivos
-    clientes_exclusivos(prob, instancia, n)
+    #clientes_exclusivos(prob, instancia, n)
 
     # Restriccion de testeo minimo de bicicletas
     #minimo_bicicletas(prob, instancia, n, 10)
@@ -533,9 +531,14 @@ def mostrar_solucion(prob,instancia, nombres):
 
 
 def main():
+    # Obtener el path desde los argumentos de la línea de comandos
+    if len(sys.argv) > 1:
+        path = sys.argv[1] 
+    else:
+        raise ValueError('Se debe ingresar el path del archivo de entrada')
     
     # Lectura de datos desde el archivo de entrada
-    instancia = cargar_instancia()
+    instancia = cargar_instancia(path)
     
     # # Definicion del problema de Cplex
     prob = cplex.Cplex()

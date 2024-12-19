@@ -2,10 +2,10 @@ import random
 import math
 
 # Cantidad de clientes
-cantidad_clientes = 5
-costo_repartidor = 3
+cantidad_clientes = 30
+costo_repartidor = 1
 d_max = 7
-cantidad_refrigerados = math.ceil(cantidad_clientes * 0.05)
+cantidad_refrigerados = 5
 cantidad_exclusivos = 1
 
 def generar_archivo_datos(filename, cantidad_clientes, costo_repartidor, d_max, cantidad_refrigerados, cantidad_exclusivos):

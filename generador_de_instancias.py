@@ -5,11 +5,11 @@ def generar_archivo_datos(filename):
     random.seed(1234)
 
     # Cantidad de clientes
-    cantidad_clientes = 300
+    cantidad_clientes = 50
     costo_repartidor = 3
     d_max = 7
-    cantidad_refrigerados = 15
-    cantidad_exclusivos = 10
+    cantidad_refrigerados = 1
+    cantidad_exclusivos = 1
 
     # Generamos los clientes refrigerados con reemplazo
     refrigerados = random.choices(range(1, cantidad_clientes + 1), k=cantidad_refrigerados)
@@ -45,7 +45,15 @@ def generar_archivo_datos(filename):
         # Generamos distancias y costos entre clientes (solo i < j)
         for i in range(1, cantidad_clientes + 1):
             for j in range(i + 1, cantidad_clientes + 1):
-                distancia = random.randint(1, 10)
+                # Decisión importante, que distribucion siguen los costos?
+
+                # Distribución uniforme
+                #distancia = random.randint(1, 10)
+
+                # Distribucion normal con media 5 y desviación 2
+                distancia = int(max(1, min(10, round(random.gauss(5, 2)))))
+
+
                 costo = distancia
                 f.write(f"{i} {j} {distancia} {costo}\n")
 

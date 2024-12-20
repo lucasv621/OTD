@@ -1,0 +1,78 @@
+Archivo de entrada: /Users/lucasveteikis/Desktop/mim/otd/OTD/instancias/instancias_costorep_dmax/instancia_2_costorep_9_dmax.txt
+Variables xij 870
+Variables yij 870
+Variables u_i 30
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_MIP_Tolerances_MIPGap                   1e-10
+Tried aggregator 1 time.
+MIP Presolve eliminated 1084 rows and 70 columns.
+MIP Presolve modified 1653 coefficients.
+Reduced MIP has 1677 rows, 1730 columns, and 9069 nonzeros.
+Reduced MIP has 1701 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.42 ticks)
+Probing time = 0.00 sec. (3.00 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 1677 rows, 1730 columns, and 9069 nonzeros.
+Reduced MIP has 1701 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.32 ticks)
+Probing time = 0.00 sec. (2.92 ticks)
+Clique table members: 5486.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (7.58 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                           70.0000        0.0000           100.00%
+      0     0       44.0690    87       70.0000       44.0690      353   37.04%
+      0     0       45.0690    60       70.0000      Cuts: 31      494   35.62%
+      0     0       46.0345    64       70.0000      Cuts: 34      560   34.24%
+*     0+    0                           65.0000       46.0345            29.18%
+      0     0       46.5000    68       65.0000      Cuts: 10      584   28.46%
+      0     0       46.5000    67       65.0000      Cuts: 17      609   28.46%
+      0     0       46.5000    62       65.0000   ZeroHalf: 4      622   28.46%
+Detecting symmetries...
+      0     0       46.5000    59       65.0000      Cuts: 16      636   28.46%
+*     0+    0                           58.0000       46.5000            19.83%
+*     0+    0                           53.0000       47.0000            11.32%
+*     0+    0                           52.0000       47.0000             9.62%
+      0     0  -1.00000e+75     0       52.0000       47.0000      636    9.62%
+Detecting symmetries...
+      0     2       46.5000    62       52.0000       47.0000      636    9.62%
+Elapsed time = 0.19 sec. (277.91 ticks, tree = 0.02 MB, solutions = 5)
+*   377   191      integral     0       49.0000       47.0000    10343    4.08%
+    682    70       47.2982    27       49.0000       47.0384    17813    4.00%
+
+Cover cuts applied:  13
+Implied bound cuts applied:  158
+Mixed integer rounding cuts applied:  15
+Zero-half cuts applied:  9
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.19 sec. (277.13 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.24 sec. (351.63 ticks)
+  Sync time (average)   =    0.08 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.43 sec. (628.76 ticks)
+Funcion objetivo:  49.0 (integer optimal solution)
+Variables con valor positivo:
+---------------------------------
+x:
+[(1, 15), (15, 23), (23, 8), (8, 9), (9, 10), (10, 28), (28, 3), (3, 29), (29, 27), (27, 2), (2, 5), (5, 7), (7, 21), (21, 4), (4, 18), (18, 17), (17, 12), (12, 11), (11, 19), (19, 1)]
+---------------------------------
+y:
+{(10, 6): 1.0, (10, 13): 1.0, (23, 14): 1.0, (23, 16): 1.0, (23, 20): 1.0, (23, 22): 1.0, (23, 24): 1.0, (23, 25): 1.0, (23, 26): 1.0, (23, 30): 1.0}
+---------------------------------
+u:
+{1: 1.0, 15: 2.0, 23: 3.0, 8: 13.999999999999984, 9: 14.999999999999986, 10: 15.99999999999999, 28: 16.99999999999999, 3: 17.99999999999999, 29: 18.99999999999999, 27: 19.99999999999999, 2: 20.99999999999999, 5: 21.999999999999993, 7: 22.999999999999996, 21: 23.999999999999996, 4: 24.999999999999996, 18: 25.999999999999996, 17: 26.999999999999996, 12: 28.0, 11: 29.0, 19: 30.0}
+---------------------------------
+z:
+{10: 1.0, 23: 1.0}
+---------------------------------

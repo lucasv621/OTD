@@ -1,0 +1,118 @@
+Archivo de entrada: /Users/lucasveteikis/Desktop/mim/otd/OTD/instancias/instancias_costorep_dmax/instancia_5_costorep_8_dmax.txt
+Variables xij 870
+Variables yij 870
+Variables u_i 30
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_MIP_Tolerances_MIPGap                   1e-10
+Tried aggregator 1 time.
+MIP Presolve eliminated 1122 rows and 114 columns.
+MIP Presolve modified 1653 coefficients.
+Reduced MIP has 1639 rows, 1686 columns, and 8899 nonzeros.
+Reduced MIP has 1657 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.26 ticks)
+Probing time = 0.00 sec. (2.98 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 1639 rows, 1686 columns, and 8899 nonzeros.
+Reduced MIP has 1657 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.14 ticks)
+Probing time = 0.00 sec. (2.90 ticks)
+Clique table members: 5414.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (4.34 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0       50.2759    65                     50.2759      116         
+      0     0       54.0000    74                    Cuts: 58      257         
+      0     0       54.0000    84                    Cuts: 32      337         
+      0     0       54.0000    83                Impl Bds: 23      341         
+*     0+    0                          150.0000       54.0000            64.00%
+*     0+    0                           92.0000       54.0000            41.30%
+      0     0  -1.00000e+75     0       92.0000       54.0000      341   41.30%
+*     0+    0                           70.0000       54.0000            22.86%
+Detecting symmetries...
+      0     2       54.0000    83       70.0000       54.0000      341   22.86%
+Elapsed time = 0.14 sec. (167.36 ticks, tree = 0.02 MB, solutions = 3)
+*    14+    6                           65.0000       54.0000            16.92%
+*    24+    4                           64.0000       54.0000            15.62%
+*    25+    3                           63.0000       54.0000            14.29%
+*   152   119      integral     0       61.0000       54.0000     3161   11.48%
+*   197   146      integral     0       59.0000       54.0000     3979    8.47%
+*   245   146      integral     0       58.0000       54.0000     4807    6.90%
+*   352   190      integral     0       57.0000       54.0000     7284    5.26%
+    698   294        cutoff             57.0000       54.0000    13258    5.26%
+   1869   969       55.7586    37       57.0000       54.0861    31913    5.11%
+   3329  1737       55.1607    75       57.0000       54.9884    53419    3.53%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 874 rows and 946 columns.
+MIP Presolve modified 334 coefficients.
+Reduced MIP has 765 rows, 740 columns, and 3461 nonzeros.
+Reduced MIP has 711 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.40 ticks)
+Tried aggregator 1 time.
+MIP Presolve modified 408 coefficients.
+Reduced MIP has 765 rows, 740 columns, and 3461 nonzeros.
+Reduced MIP has 711 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (2.64 ticks)
+Represolve time = 0.01 sec. (14.43 ticks)
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 188 rows and 231 columns.
+MIP Presolve modified 2122 coefficients.
+Reduced MIP has 577 rows, 509 columns, and 4510 nonzeros.
+Reduced MIP has 480 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (4.28 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 782 coefficients.
+Reduced MIP has 576 rows, 509 columns, and 4451 nonzeros.
+Reduced MIP has 480 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.01 ticks)
+Represolve time = 0.01 sec. (15.52 ticks)
+   3503     0       54.0000    35       57.0000    MIRcuts: 6    57569    3.51%
+   3503     0       54.0000    78       57.0000      Cuts: 21    57649    3.51%
+   3503     0       54.0000    77       57.0000       Cuts: 2    57716    3.51%
+   3503     0       54.0000    83       57.0000     Cuts: 139    57794    3.51%
+   3503     2       54.0000    35       57.0000       55.0000    57794    3.51%
+   4203   299       55.1381    32       57.0000       55.0000    64781    3.51%
+*  4315+  361                           56.0000       55.0000             1.79%
+
+Cover cuts applied:  24
+Implied bound cuts applied:  18
+Mixed integer rounding cuts applied:  17
+Zero-half cuts applied:  1
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.11 sec. (166.79 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    1.01 sec. (1519.05 ticks)
+  Sync time (average)   =    0.27 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    1.12 sec. (1685.84 ticks)
+Funcion objetivo:  56.0 (integer optimal solution)
+Variables con valor positivo:
+---------------------------------
+x:
+[(1, 25), (25, 27), (27, 29), (29, 3), (3, 30), (30, 12), (12, 17), (17, 26), (26, 9), (9, 10), (10, 28), (28, 15), (15, 23), (23, 8), (8, 13), (13, 6), (6, 20), (20, 21), (21, 4), (4, 18), (18, 2), (2, 5), (5, 7), (7, 22), (22, 16), (16, 24), (24, 14), (14, 11), (11, 19), (19, 1)]
+---------------------------------
+y:
+{}
+---------------------------------
+u:
+{1: 1.0, 25: 2.0, 27: 3.0, 29: 4.0, 3: 5.0, 30: 6.0, 12: 7.0, 17: 8.0, 26: 9.0, 9: 10.0, 10: 11.0, 28: 12.0, 15: 13.0, 23: 14.0, 8: 15.0, 13: 16.0, 6: 17.0, 20: 18.0, 21: 19.0, 4: 20.0, 18: 21.0, 2: 22.0, 5: 23.0, 7: 24.0, 22: 25.0, 16: 26.0, 24: 27.0, 14: 28.0, 11: 29.0, 19: 30.0}
+---------------------------------
+z:
+{}
+---------------------------------

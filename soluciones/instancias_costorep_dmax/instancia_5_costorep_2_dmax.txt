@@ -1,0 +1,73 @@
+Archivo de entrada: /Users/lucasveteikis/Desktop/mim/otd/OTD/instancias/instancias_costorep_dmax/instancia_5_costorep_2_dmax.txt
+Variables xij 870
+Variables yij 870
+Variables u_i 30
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_MIP_Tolerances_MIPGap                   1e-10
+Tried aggregator 2 times.
+MIP Presolve eliminated 1758 rows and 790 columns.
+MIP Presolve modified 1712 coefficients.
+Aggregator did 6 substitutions.
+Reduced MIP has 997 rows, 1004 columns, and 6107 nonzeros.
+Reduced MIP has 975 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.66 ticks)
+Probing time = 0.00 sec. (2.75 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 997 rows, 1004 columns, and 6107 nonzeros.
+Reduced MIP has 975 binaries, 29 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.75 ticks)
+Probing time = 0.00 sec. (2.76 ticks)
+Clique table members: 3146.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (2.37 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0       50.2759    65                     50.2759       91         
+      0     0       54.0000    76                    Cuts: 61      190         
+      0     0       54.0000    85                    Cuts: 38      274         
+      0     0       54.0000    83                 Impl Bds: 8      275         
+*     0+    0                           60.0000       54.0000            10.00%
+Detecting symmetries...
+      0     2       54.0000    83       60.0000       54.0000      275   10.00%
+Elapsed time = 0.63 sec. (1037.55 ticks, tree = 0.02 MB, solutions = 1)
+*    57+    6                           59.0000       54.0000             8.47%
+*    83+    4                           57.0000       54.0000             5.26%
+*   186   106      integral     0       56.0000       54.0000     8687    3.57%
+    471   104       55.0000    54       56.0000       54.1450    20027    3.31%
+   1005    30    infeasible             56.0000       55.0000    53673    1.79%
+
+Clique cuts applied:  11
+Implied bound cuts applied:  298
+Mixed integer rounding cuts applied:  27
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.63 sec. (1037.18 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.33 sec. (500.45 ticks)
+  Sync time (average)   =    0.11 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.96 sec. (1537.63 ticks)
+Funcion objetivo:  56.0 (integer optimal solution)
+Variables con valor positivo:
+---------------------------------
+x:
+[(1, 19), (19, 13), (13, 8), (8, 23), (23, 15), (15, 28), (28, 10), (10, 9), (9, 26), (26, 17), (17, 18), (18, 4), (4, 21), (21, 20), (20, 6), (6, 24), (24, 14), (14, 11), (11, 12), (12, 30), (30, 3), (3, 29), (29, 27), (27, 2), (2, 5), (5, 7), (7, 22), (22, 16), (16, 25), (25, 1)]
+---------------------------------
+y:
+{}
+---------------------------------
+u:
+{1: 1.0, 19: 2.0, 13: 3.0, 8: 4.0, 23: 5.000000000000002, 15: 6.000000000000002, 28: 7.000000000000002, 10: 8.000000000000004, 9: 9.000000000000005, 26: 10.000000000000005, 17: 11.000000000000005, 18: 12.000000000000005, 4: 13.000000000000005, 21: 14.000000000000005, 20: 15.000000000000007, 6: 16.000000000000007, 24: 17.000000000000007, 14: 18.000000000000007, 11: 19.000000000000007, 12: 20.000000000000007, 30: 21.000000000000007, 3: 22.000000000000007, 29: 23.00000000000001, 27: 24.000000000000014, 2: 25.000000000000018, 5: 26.00000000000002, 7: 27.000000000000025, 22: 28.000000000000025, 16: 29.000000000000025, 25: 30.000000000000025}
+---------------------------------
+z:
+{}
+---------------------------------

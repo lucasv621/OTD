@@ -528,12 +528,28 @@ def mostrar_solucion(prob,instancia, nombres):
     print('z:')
     print(vars_z_con_valor_positivo)
     print('---------------------------------')
+    
+    return valor_obj, ruta_ordenada, vars_y_con_valor_positivo, u_filtrados_ordenados, vars_z_con_valor_positivo
+
+def armar_archivo_solucion(valor_obj, ruta_ordenada, vars_y_con_valor_positivo, u_filtrados_ordenados, vars_z_con_valor_positivo, filename):
+    # Escribir la solucion a un archivo
+    with open(filename, 'w') as f:  # Cambié 'r' a 'w' para crear el archivo si no existe
+        f.write(f'Costo total: {valor_obj}\n')
+        f.write('Ruta ordenada: \n')
+        f.write(f'{ruta_ordenada}\n')
+        f.write('Variables y con valor positivo: \n')
+        f.write(f'{vars_y_con_valor_positivo}\n')
+        f.write('Variables u con valor positivo: \n')
+        f.write(f'{u_filtrados_ordenados}\n')
+        f.write('Variables z con valor positivo: \n')
+        f.write(f'{vars_z_con_valor_positivo}\n')
 
 
 def main():
     # Obtener el path desde los argumentos de la línea de comandos
     if len(sys.argv) > 1:
-        path = sys.argv[1] 
+        path = sys.argv[1]
+        print(f'Archivo de entrada: {path}') 
     else:
         raise ValueError('Se debe ingresar el path del archivo de entrada')
     
@@ -548,10 +564,13 @@ def main():
 
     # # Resolucion del modelo
     resolver_lp(prob)
-    print()
 
     # # Obtencion de la solucion
+    #valor_obj, ruta_ordenada, vars_y_con_valor_positivo, u_filtrados_ordenados, vars_z_con_valor_positivo = mostrar_solucion(prob,instancia, nombres)
     mostrar_solucion(prob,instancia, nombres)
+
+    # # Escritura de la solucion
+    #armar_archivo_solucion(valor_obj, ruta_ordenada, vars_y_con_valor_positivo, u_filtrados_ordenados, vars_z_con_valor_positivo, f'soluciones/{path.split("/")[-1]}')
 
 if __name__ == '__main__':
     main()
